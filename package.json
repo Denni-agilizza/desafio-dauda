@@ -1,0 +1,22 @@
+{
+  "name": "inventario-ti",
+  "version": "1.0.0",
+  "description": "Sistema web para gestão de ativos de hardware de TI com persistência em arquivo JSON.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "inventario",
+    "ti",
+    "express",
+    "json",
+    "hardware"
+  ],
+  "author": "Seu Nome",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

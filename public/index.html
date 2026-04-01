@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Inventário de TI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <p class="tag">Gestão de ativos</p>
+      <h1>Sistema de Inventário de TI</h1>
+      <p class="subtitle">
+        Cadastre, visualize e gerencie equipamentos de hardware com persistência real em arquivo JSON.
+      </p>
+    </header>
+
+    <main class="content">
+      <section class="form-card">
+        <h2>Cadastrar equipamento</h2>
+        <p class="section-text">Preencha os dados do ativo abaixo.</p>
+
+        <form id="form">
+          <div class="field">
+            <label for="id">ID Numérico</label>
+            <input type="number" id="id" placeholder="Deixe em branco para gerar automático">
+          </div>
+
+          <div class="field">
+            <label for="tipo">Tipo</label>
+            <select id="tipo" required>
+              <option value="">Selecione o tipo</option>
+              <option value="Computador">Computador</option>
+              <option value="Notebook">Notebook</option>
+              <option value="Monitor">Monitor</option>
+              <option value="Mouse">Mouse</option>
+              <option value="Teclado">Teclado</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="modeloMarca">Modelo / Marca</label>
+            <input type="text" id="modeloMarca" placeholder="Ex: Dell Inspiron 15" required>
+          </div>
+
+          <div class="field">
+            <label for="colaborador">Colaborador</label>
+            <input type="text" id="colaborador" placeholder="Nome completo" required>
+          </div>
+
+          <div class="field">
+            <label for="setor">Setor</label>
+            <input type="text" id="setor" placeholder="Ex: RH, Comercial, TI" required>
+          </div>
+
+          <button type="submit">Cadastrar ativo</button>
+        </form>
+
+        <p id="msg" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="table-card">
+        <div class="table-topbar">
+          <div>
+            <h2>Equipamentos cadastrados</h2>
+            <p class="section-text">Itens salvos no arquivo inventario.json</p>
+          </div>
+
+          <div class="table-tools">
+            <div class="counter-box">
+              <span>Total</span>
+              <strong id="contador">0</strong>
+            </div>
+
+            <input
+              type="text"
+              id="filtroSetor"
+              class="filter-input"
+              placeholder="Filtrar por setor"
+            >
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tipo</th>
+                <th>Modelo / Marca</th>
+                <th>Colaborador</th>
+                <th>Setor</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="lista">
+              <tr>
+                <td colspan="6" class="empty">Carregando inventário...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
